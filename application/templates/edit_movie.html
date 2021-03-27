@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block body_content %}
+<div class='form'>
+        <form method='POST' action="">
+                {{ form.hidden_tag() }} <!--- This must be at the top of the form to enable hidden key --->
+                <div class="form-group">
+                    {{ form.title.label }}</br>
+                    {{ form.title }}
+                    {% if form.title.errors %}
+                    <div class="error">
+                            {% for error in form.title.errors %}
+                                    <span>{{ error }}</span>
+                            {% endfor %}
+                    </div>
+                    {% endif %}
+            </div>
+            <br>
+            <div class="form-group">
+                        {{ form.year.label }}</br>
+                        {{ form.year }}
+                        {% if form.year.errors %}
+                        <div class="error">
+                                {% for error in form.year.errors %}
+                                        <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                </div>
+                <br>
+                <div class="form-group">
+                        {{ form.genre.label }}</br>
+                        {{ form.genre }}
+                        {% if form.genre.errors %}
+                        <div class="error">
+                                {% for error in form.genre.errors %}
+                                        <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                </div>
+                <br>
+                <div class="form-group">
+                        {{ form.director.label }}</br>
+                        {{ form.director }}
+                        {% if form.director.errors %}
+                        <div class="error">
+                        {% for error in form.director.errors %}
+                                <span>{{ error }}</span>
+                        {% endfor %}
+                        </div>
+                        {% endif %}
+                </div>
+                <br>
+                <div class="form-group">
+                        {{ form.age.label }}</br>
+                        {{ form.age }}
+                        {% if form.age.errors %}
+                        <div class='error'>
+                                {% for error in form.age.errors %}
+                                        <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                </div>
+                <br>
+                <div class="form-group">
+                        {{ form.description.label }}</br>
+                        {{ form.description }}
+                        {% if form.description.errors %}
+                        <div class='error'>
+                                {% for error in form.description.errors %}
+                                        <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                </div>
+                <br>
+                <div class="form-group">
+                        {{ form.formating.label }}</br>
+                        {{ form.formating }}
+                        {% if form.formating.errors %}
+                        <div class='error'>
+                                {% for error in form.formating.errors %}
+                                        <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                </div>
+                <br>
+                <div class="form-group">
+                        {{ form.code.label }}</br>
+                        {{ form.code }}
+                        {% if form.code.errors %}
+                        <div class='error'>
+                                {% for error in form.code.errors %}
+                                        <span>{{ error }}</span>
+                                {% endfor %}
+                        </div>
+                        {% endif %}
+                </div>
+        </br>
+        {{ form.submit }}
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,80 @@
+@charset "utf-8";
+/*@Sean-David-McCann©2020*/
+/*----------------------------------------------------------------------------------*/
+/*--- Basic_CSS ---*/
+
+html {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 20px;
+}
+
+h3 {
+	font-size: 16px;
+}
+
+p {
+	font-size: 12px;
+}
+
+span {
+	font-style: italic;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: 80%;
+	height: auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+/*--- Basic_CSS-END ---*/
+/*----------------------------------------------------------------------------------*/
+/*--- Menu_Settings -------*/
+#Main-Menu{
+
+}
+
+#Sub-Menu{
+
+}
+/*--- Menu_Settings-END ---*/
+/*----------------------------------------------------------------------------------*/
+/*--- id's_and_class's_A-Z- ------*/
+.Film_List{
+
+}
+
+.form{
+	background-color: ivory;
+}
+
+.form-group{
+
+}
+
+.Home_Splash{
+
+}
+
+}.Wrapper{
+
+}
+/*--- id's_and_class's_A-Z-END ---*/

@@ -1,0 +1,44 @@
+<html>
+	<!------------------------------------------------------------------------------------------------------->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="/images/CE_Web-Icon.png" rel="shortcut icon" type="image/png" />
+		<title>Movie catalogue - {{ title }}</title>
+		<!--link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"-->
+	</head>
+	<!------------------------------------------------------------------------------------------------------->
+	<body>
+		<div id="Main-Menu">
+			<ul>
+				<li><a href="{{ url_for('home') }}">Home</a></li>
+				<li><a href="{{ url_for('about') }}">About</a></li>
+				{% if current_user.is_authenticated %}
+				<li><a href="{{ url_for('collection') }}">My Collection</a></li>
+				<li><a href="{{ url_for('account') }}">My Account</a></li>
+				<li><a href="{{ url_for('logout') }}">Logout</a></li>
+				{% else %}
+				<li><a href="{{ url_for('login') }}">Login</a></li>
+				<li><a href="{{ url_for('register') }}">Register</a></li>
+				{% endif %}
+			</ul>
+		</div>
+
+		<div id="Sub-Menu">
+			<ul>
+				<li><a href="{{ url_for('catalogue') }}">Movie List</a></li>
+				{% if current_user.is_authenticated %}
+				<li><a href="{{ url_for('add_movie') }}">Create Movie</a></li>
+				{% else %}
+				<li>Create Movie</li>
+				{% endif %}
+			</ul>
+		</div>
+
+		<div class="Wrapper">
+			<h1>{{ title }}</h1><br>
+		{% block body_content  %}{% endblock  %}
+		</div>
+	</body>
+	<!------------------------------------------------------------------------------------------------------->
+</html>
