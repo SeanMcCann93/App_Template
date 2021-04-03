@@ -37,30 +37,8 @@ class TestBase(TestCase):
             email="System@Testing.com",
             password=hashed_pw_2
             )
-        film1 = Films(
-            title="Test Matrix 1001",
-            year=2020,
-            age="U",
-            director="Test-System",
-            genre="Invasion",
-            formating="Plug In",
-            description="This is a virus sent to test the functionality of this data",
-            code=56735729
-        )
-        film2 = Films(
-            title="Test Matrix 1011",
-            year=2020,
-            age="U",
-            director="Test-TestingSystem",
-            genre="Invasion 2.0",
-            formating="Plug In",
-            description="This is a second virus sent to test the functionality of this data",
-            code=92753765
-        )
         db.session.add(admin)
         db.session.add(employee)
-        db.session.add(film1)
-        db.session.add(film2)
         db.session.commit()
 
     def tearDown(self):
@@ -86,91 +64,6 @@ class TestViews(TestBase):
 
 # ---------- Create-Function-Testing ----------
 
-class TestAddFilmF(TestBase):
-    def test_add_film(self):
-        """This is to add a film to the database"""
-        with self.client:
-            self.client.post(
-                url_for('login'),
-                data=dict(
-                    email="AdminSystem@Testing.com",
-                    password="Adm1nSy5temT35t1n8"
-                ),
-            follow_redirects=True
-            )
-            response = self.client.post(
-                url_for('add_movie'),
-                data=dict(
-                    title="Test Matrix 1111",
-                    year=2020,
-                    age="PG",
-                    director="Test-Add",
-                    genre="Spreading",
-                    formating="Expanding",
-                    description="This is the creation of a virus sent to test the functionality of this data",
-                    code=57295673
-                ),
-                follow_redirects=True
-            )
-        self.assertEqual(Films.query.count(), 3)
-
-class TestOwnF(TestBase):
-    """Testing to see if first film can be added to the collection 'film_id=1' in this test"""
-    def test_own_film(self):
-        with self.client:
-            self.client.post(
-                url_for('login'),
-                data=dict(
-                    email="AdminSystem@Testing.com",
-                    password="Adm1nSy5temT35t1n8"
-                ),
-            follow_redirects=True
-            )
-            response = self.client.post(
-                url_for('add_collection', film=1),
-                follow_redirects=True
-            )
-        self.assertIn(b'1', response.data)
-
-class TestOwnX2F(TestBase):
-    """Testing to see if both films can be added to the collection"""
-    def test_own2_film(self):
-        with self.client:
-            self.client.post(
-                url_for('login'),
-                data=dict(
-                    email="System@Testing.com",
-                    password="Sy5temT35t1n8"
-                ),
-            follow_redirects=True
-            )
-            response = self.client.post(
-                url_for('add_collection', film=1),
-                follow_redirects=True
-            )
-            response = self.client.post(
-                url_for('add_collection', film=2),
-                follow_redirects=True
-            )
-        self.assertIn(b'2', response.data)
-        self.assertEqual(Collection.query.filter_by(user_id=2).count(), 2)
-
-class TestRegUserF(TestBase):
-    def test_accadd_user(self):
-        """This is to add a User to the database"""
-        with self.client:
-            self.client.post(
-                url_for('register'),
-                data=dict(
-                    first_name="NewSystem",
-                    last_name="Testing",
-                    email="NewSystem@Testing.com",
-                    password="N3wSy5temT35t1n8",
-                    confirm_password="N3wSy5temT35t1n8"
-                )
-            )
-            follow_redirects=True
-        self.assertEqual(Users.query.count(), 3)
 
 # -------- Create-Function-Limitations --------
 
@@ -186,15 +79,7 @@ class TestOwnDuplicatesF(TestBase):
                 ),
             follow_redirects=True
             )
-            response = self.client.post(
-                url_for('add_collection', film=1),
-                follow_redirects=True
-            )
-            response = self.client.post(
-                url_for('add_collection', film=1),
-                follow_redirects=True
-            )
-        self.assertEqual(Collection.query.filter_by(user_id=1).count(), 1)
+        self.assertEqual(Users.query.filter_by(user_id=1).count(), 1)
 
 # -------- END-Create-Function-Testing --------
 

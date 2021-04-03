@@ -4,7 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="/images/CE_Web-Icon.png" rel="shortcut icon" type="image/png" />
-		<title>Movie catalogue - {{ title }}</title>
+		<title>Application Template</title>
 		<!--link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"-->
 	</head>
 	<!------------------------------------------------------------------------------------------------------->
@@ -26,9 +26,9 @@
 
 		<div id="Sub-Menu">
 			<ul>
-				<li><a href="{{ url_for('catalogue') }}">Movie List</a></li>
+				<li><a href="{{ url_for('') }}">Movie List</a></li>
 				{% if current_user.is_authenticated %}
-				<li><a href="{{ url_for('add_movie') }}">Create Movie</a></li>
+				<li><a href="{{ url_for('') }}">Create Movie</a></li>
 				{% else %}
 				<li>Create Movie</li>
 				{% endif %}
