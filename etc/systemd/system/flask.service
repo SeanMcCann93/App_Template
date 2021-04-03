@@ -1,0 +1,13 @@
+[Unit]
+
+Description=${Project-Name}
+
+[Service]
+
+User=jenkins
+
+ExecStart=/var/lib/jenkins/workspace/${Project-Name}/script/installation.sh
+
+[Install]
+
+WantedBy=multi-user.target
