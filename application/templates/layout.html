@@ -14,7 +14,7 @@
 				<li><a href="{{ url_for('home') }}">Home</a></li>
 				<li><a href="{{ url_for('about') }}">About</a></li>
 				{% if current_user.is_authenticated %}
-				<li><a href="{{ url_for('collection') }}">My Collection</a></li>
+				<li><a href="{{ url_for('home') }}">My Collection</a></li>
 				<li><a href="{{ url_for('account') }}">My Account</a></li>
 				<li><a href="{{ url_for('logout') }}">Logout</a></li>
 				{% else %}
@@ -26,9 +26,9 @@
 
 		<div id="Sub-Menu">
 			<ul>
-				<li><a href="{{ url_for('') }}">Movie List</a></li>
+				<li><a href="{{ url_for('home') }}">Movie List</a></li>
 				{% if current_user.is_authenticated %}
-				<li><a href="{{ url_for('') }}">Create Movie</a></li>
+				<li><a href="{{ url_for('home') }}">Create Movie</a></li>
 				{% else %}
 				<li>Create Movie</li>
 				{% endif %}

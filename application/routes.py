@@ -52,7 +52,7 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        return redirect(url_for('catalogue'))
+        return redirect(url_for('home'))
     return render_template('user/register.html', title='Register', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
