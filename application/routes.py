@@ -33,7 +33,7 @@ def register():
         db.session.commit()
 
         return redirect(url_for('post'))
-    return render_template('register.html', title='Register', form=form)
+    return render_template('user/register.html', title='Register', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -53,7 +53,7 @@ def login():
             else:
                 return redirect(url_for('home'))
 
-    return render_template('login.html', title='Login Page', form=form)
+    return render_template('user/login.html', title='Login Page', form=form)
 
 @app.route('/account', methods=['GET', 'POST'])
 @login_required
@@ -69,7 +69,7 @@ def account():
         form.first_name =  current_user.first_name
         form.last_name = current_user.last_name
         form.email = current_user.email
-    return render_template('account.html', title='Account', form=form)
+    return render_template('user/account.html', title='Account', form=form)
 
 @app.route('/account/delete', methods=['GET', 'POST'])
 @login_required
@@ -101,7 +101,7 @@ def account_delete():
         db.session.commit()
 
         return redirect(url_for('post'))
-    return render_template('register.html', title='Register', form=form)
+    return render_template('user/register.html', title='Register', form=form)
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
