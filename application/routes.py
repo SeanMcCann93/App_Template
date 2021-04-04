@@ -106,10 +106,7 @@ def account_delete():
     removed it will log the user out and delete their account."""
     user = current_user.id
     account = Users.query.filter_by(id=user).first()
-    owned = Collection.query.filter_by(user_id=user).all()
     logout_user()
-    for films in owned:
-        db.session.delete(films)
     db.session.delete(account)
     db.session.commit()
     return redirect(url_for('register'))
