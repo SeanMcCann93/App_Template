@@ -4,8 +4,12 @@
 <div class="Home_Splash">
 	<div>
 		<h2><a href="{{ url_for('collection') }}">Get started creating your movie collection!</a></h2><br>
+		{% if current_user.is_authenticated %}
+		<h3>Tell the world what it is you want them to know! That you are a movie fan :)</h3>
+		{% else %}
 		<h3>Not a member?</h3>
 		<h3>Lets get you <a href="{{ url_for('register') }}">registered Now</a>!</h3>
+		{% endif %}
 	</div>
 </div>
 {% endblock %}

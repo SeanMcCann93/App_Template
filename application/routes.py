@@ -69,7 +69,7 @@ def catalogue():
     edit/delete or add to collection are hidden untill the user signs
     in and creates and account."""
     filmData = Films.query.all()
-    return render_template('catalogue.html', title='catalogue Page', films=filmData)
+    return render_template('catalogue.html', title='Catalogue Page', films=filmData)
 
 @app.route('/collection', methods=['GET', 'POST'])
 @login_required
@@ -79,7 +79,7 @@ def collection():
     collection will be displayed."""
     userID = int(current_user.id)
     myFilms = Collection.query.filter_by(user_id = userID).all()
-    return render_template('collection.html', title='collection', films=myFilms)
+    return render_template('collection.html', title='Collection', films=myFilms)
 
 # --- READ---END ---
 # --- UPDATE-START ---

@@ -12,17 +12,17 @@
         <ul>
             <li style="text-decoration: none; display: block; float: left; margin-right: 5px;">
                 <form action="{{ url_for('add_collection', film = film.id) }}">
-                    <button type="submit">I own this Movie</button>
+                    <button type="submit" style="width: 60px;">I Own</button>
                 </form>
             </li>
             <li style="text-decoration: none; display: block; float: left; margin-right: 5px;">
                 <form action="{{ url_for('edit_movie', filmID = film.id) }}">
-                    <button type="submit">Edit this Movie</button>
+                    <button type="submit" style="width: 60px;">Edit</button>
                 </form>
             </li>
             <li style="text-decoration: none; display: block; float: left;">
                 <form action="{{ url_for('delete', filmID = film.id) }}">
-                    <button type="submit">Delete this Movie</button>
+                    <button type="submit" style="width: 60px;">Delete</button>
                 </form>
             </li>
         </ul>
