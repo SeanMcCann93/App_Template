@@ -5,7 +5,7 @@
         <form method='POST' action="">
                 {{ form.hidden_tag() }} <!--This must be at the top of the form to enable hidden key-->
                 <div class="form-group">
-                        {{ form.first_name.label }}</br>
+                        {{ form.first_name.label }}
                         {{ form.first_name }}
                         {% if form.first_name.errors %}
                         <div class="error">
@@ -17,7 +17,7 @@
                 </div>
                 <br>
                 <div class="form-group">
-                        {{ form.last_name.label }}</br>
+                        {{ form.last_name.label }}
                         {{ form.last_name }}
                         {% if form.last_name.errors %}
                         <div class="error">
@@ -29,7 +29,7 @@
                 </div>
                 <br>
                 <div class="form-group">
-                        {{ form.email.label }}</br>
+                        {{ form.email.label }}
                         {{ form.email }}
                         {% if form.email.errors %}
                         <div class='error'>
@@ -41,7 +41,7 @@
                 </div>
                 <br>
                 <div class="form-group">
-                        {{ form.password.label }}</br>
+                        {{ form.password.label }}
                         {{ form.password }}
                         {% if form.password.errors %}
                         <div class='error'>
@@ -53,7 +53,7 @@
                 </div>
                 <br>
                 <div class="form-group">
-                        {{ form.confirm_password.label }}</br>
+                        {{ form.confirm_password.label }}
                         {{ form.confirm_password }}
                         {% if form.confirm_password.errors %}
                         <div class='error'>
@@ -63,7 +63,6 @@
                         </div>
                         {% endif %}
                 </div>
-                </br>
                 {{ form.submit }}
         </form>
 </div>

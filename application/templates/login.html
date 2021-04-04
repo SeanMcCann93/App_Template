@@ -5,7 +5,7 @@
         <form method='POST' action="">
                 {{ form.hidden_tag() }}
                 <div class="form-group">
-                        {{ form.email.label }}:</br>
+                        {{ form.email.label }}
                         {{ form.email }}
                         {% if form.email.errors %}
                         <div class='error'>
@@ -17,7 +17,7 @@
                 </div>
                 <br>
                 <div class="form-group">
-                        {{ form.password.label }}:</br>
+                        {{ form.password.label }}
                         {{ form.password }}
                         {% if form.password.errors %}
                         <div class='error'>
@@ -31,7 +31,6 @@
 		{{ form.remember.label }}
 		{{ form.remember }}
 		<br>
-                <br>
 		{{ form.submit }}
         </form>
 </div>

@@ -1,50 +1,24 @@
 <html>
-	<!------------------------------------------------------------------------------------------------------->
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="{{ url_for('static', filename='images/CE_Footer.png') }}" rel="shortcut icon" type="image/png" />
-		<title>Movie catalogue - {{ title }}</title>
-		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+		<title>
+			{{ title }}
+		</title>
 	</head>
-	<!------------------------------------------------------------------------------------------------------->
 	<body>
-		<div class="Menu-Wrapper">
-			<div class="Container">
-				<ul id="Main-Menu">
-					<li><a href="{{ url_for('home') }}">Home</a></li>
-					<li><a href="{{ url_for('about') }}">About</a></li>
-					{% if current_user.is_authenticated %}
-					<li><a href="{{ url_for('collection') }}">My Collection</a></li>
-					<li><a href="{{ url_for('account') }}">My Account</a></li>
-					<li><a href="{{ url_for('logout') }}">Logout</a></li>
-					{% else %}
-					<li><a href="{{ url_for('login') }}">Login</a></li>
-					<li><a href="{{ url_for('register') }}">Register</a></li>
-					{% endif %}
-				</ul>
-				<ul id="Sub-Menu">
-					<li><a href="{{ url_for('catalogue') }}">Movie List</a></li>
-					{% if current_user.is_authenticated %}
-					<li><a href="{{ url_for('add_movie') }}">Create Movie</a></li>
-					{% else %}
-					<li style="color: red;">Create Movie</li>
-					{% endif %}
-				</ul>
-			</div>
+		<div id="Main-Menu" class="Menu_Home">
+			<ul>
+				<li><a href="{{ url_for('home') }}">Home</a></li>
+				<li><a href="{{ url_for('about') }}">About</a></li>
+				{% if current_user.is_authenticated %}
+				<li><a href="{{ url_for('post') }}">Post</a></li>
+				<li><a href="{{ url_for('account') }}">My Account</a></li>
+				<li><a href="{{ url_for('logout') }}">Logout</a></li>
+				{% else %}
+				<li><a href="{{ url_for('login') }}">Login</a></li>
+				<li><a href="{{ url_for('register') }}">Register</a></li>
+				{% endif %}
+			</ul>
 		</div>
-
-		<div class="Wrapper">
-			<h1>{{ title }}</h1><br>
 		{% block body_content  %}{% endblock  %}
-		</div>
-		<div style="width:100%; background-color:#e6e6e6;">
-			<div class="footer">
-				<img alt="{{ url_for('static', filename='images/CE_Footer.png') }}" class="Footer-Image" src="{{ url_for('static', filename='images/CE_Footer.png') }}" />
-				<p>by SEAN DAVID McCANN</p>
-				<h3>my stamp &copy; 2021 property of SeanMcCann93, All rights open for use</h3>
-			</div>
-		</div>
 	</body>
-	<!------------------------------------------------------------------------------------------------------->
 </html>
