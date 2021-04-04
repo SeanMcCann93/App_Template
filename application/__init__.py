@@ -6,7 +6,7 @@ from flask_login import LoginManager
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = str(os.getenv( 'FLASK_BLOG_URI' ))
+app.config['SQLALCHEMY_DATABASE_URI'] = str(os.getenv( 'APP_URI' ))
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = str(os.getenv('MY_SECRET_KEY'))
 db = SQLAlchemy(app)

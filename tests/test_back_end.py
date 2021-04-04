@@ -10,7 +10,7 @@ class TestBase(TestCase):
         # pass in configuration for test database
         config_name = 'testing'
         app.config.update(
-            SQLALCHEMY_URI=getenv('FLASK_BLOG_TEST_URI'),
+            SQLALCHEMY_URI=getenv('APP_TEST_URI'),
             SECRET_KEY=getenv('TEST_SECRET_KEY'),
             WTF_CSRF_ENABLED=False,
             DEBUG=True
