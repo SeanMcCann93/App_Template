@@ -6,6 +6,8 @@
 
 *.sql
 
+/pro-venv/
+
 /pycache/
 
 /venv/
