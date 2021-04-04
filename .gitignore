@@ -1,0 +1,15 @@
+*.coverage
+
+*.env
+
+*.pyc
+
+*.sql
+
+/pro-venv/
+
+/pycache/
+
+/venv/
+
+/.vscode/
