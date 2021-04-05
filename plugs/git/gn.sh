@@ -3,7 +3,7 @@
 homedir=false
 
 echo " "
-echo "EXECUTING..."
+echo "       EXECUTING..."
 echo "      ::::::::::::::::::::::::::::::::    ::: :::::::: :::       :::"
 echo "    :+:    :+:   :+:        :+:   :+:+:   :+::+:    :+::+:       :+:"
 echo "   +:+          +:+        +:+    :+:+:+  +:++:+    +:++:+       +:+"
@@ -26,7 +26,11 @@ do
         echo "** PROJECT ROOT CONFIRMED **"
         echo ""
         echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        echo "> PASS OVER TO 'Git PUSH' >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+        echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
         gpush # Calls for the gpush command
+        echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+        echo "< RETURN TO 'Git NOW' <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
         echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
         echo ""
         while true; do
@@ -34,15 +38,18 @@ do
             case $yn in
                 [Yy]* ) 
                     echo " "
-                    echo "----------------------------------------------------------------------------"
                     echo "EXECUTING: Pull"
-                    echo "----------------------------------------------------------------------------"
                     echo " "
-                    git pull
-                    $homedir = true   
+                    echo "<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<"
+                    echo " "
+                    git pull # Pull down changes made to the repository
+                    $homedir = true
                     echo ""
-                    echo "RETURN TO ORIGIN DIRECTORY >>> $(pwd)"
+                    echo "<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<"
                     echo ""
+                    echo ">>> RETURNING TO ORIGIN DIRECTORY..."
+                    echo ""
+                    echo "Git NOW {successful}"
                     break;;
                 [Nn]* )
                     break;;
@@ -52,7 +59,7 @@ do
         break
     else
         cd ..
-        echo "CHANGE DIRECTORY: $(pwd)"
+        echo " - CHANGE DIRECTORY: $(pwd)"
         if [ $PWD == $HOME ]
         then
             echo "Reached Home Directory. Unable to find root!"
