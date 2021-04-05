@@ -1,6 +1,6 @@
 #!/bin/bash
 
-homedir=false
+ProjectRootDir=false # Set a new variable to we have found the corrent directory
 
 echo " "
 echo "       EXECUTING..."
@@ -17,24 +17,24 @@ echo " "
 echo "----------------------------------------------------------------------------"
 echo "CONFIRM PROJECT ROOT FOLDER"
 echo "----------------------------------------------------------------------------"
-echo ""
-while [ $homedir = false ]
+echo " "
+while [ $ProjectRootDir = false ]
 do
-    if [ -d '.git' ]
-    then
-        echo ""
+    if [ -d '.git' ] # If the repository file .git is found in current directory...
+    then # is found then...
+        echo " "
         echo "** PROJECT ROOT CONFIRMED **"
-        echo ""
+        echo " "
         echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
         echo "> PASS OVER TO 'Git PUSH' >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
         echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-        gpush # Calls for the gpush command
+        gpush # Calls for the gpush command to upload changes with custom message
         echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
         echo "< RETURN TO 'Git NOW' <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
         echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
-        echo ""
+        echo " "
         while true; do
-            read -p "Do you wish to Pull Git Updates (Y/N)? " yn
+            read -p "Do you wish to Pull Git Updates (Y/N)? " yn # Optional Pull of git changes
             case $yn in
                 [Yy]* ) 
                     echo " "
@@ -43,29 +43,30 @@ do
                     echo "<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<"
                     echo " "
                     git pull # Pull down changes made to the repository
-                    $homedir = true
-                    echo ""
+                    echo " "
                     echo "<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<"
-                    echo ""
+                    echo " "
                     echo ">>> RETURNING TO ORIGIN DIRECTORY..."
-                    echo ""
-                    echo "Git NOW {successful}"
+                    echo " "
+                    echo "GitNOW {successful}"
+                    echo " "
                     break;;
                 [Nn]* )
                     break;;
                 * ) echo "Please answer with 'y' or 'n'.";;
             esac
-        done          
+        done 
+        $ProjectRootDir = true # Set variable to 'True' to brake the loop.   
         break
     else
-        cd ..
-        echo " - CHANGE DIRECTORY: $(pwd)"
-        if [ $PWD == $HOME ]
-        then
+        cd .. # Go up a file directory.
+        echo " - CHANGE DIRECTORY: $(pwd)" # Print out current location.
+        if [ $PWD == $HOME ] # If passed and entering root location...
+        then # the script is to abort.
             echo "Reached Home Directory. Unable to find root!"
-            echo ""
-            echo "gitmatch {unsuccessful}"
-            echo ""
+            echo " "
+            echo "GitNOW {unsuccessful}"
+            echo " "
             break
         fi
     fi
