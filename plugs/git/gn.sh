@@ -40,7 +40,7 @@ do
                 case $yn in
                     [Yy]* ) 
                         echo " "
-                        echo "EXECUTING: Pull"
+                        echo "EXECUTING: PULL"
                         echo " "
                         echo "<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<"
                         echo " "
@@ -57,9 +57,11 @@ do
             done
         else
             echo " "
+            echo "SKIPPING: PULL"
+            echo " "
             echo "<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<"
             echo " "
-            echo "Branch is up to date."
+            echo " - Branch is already up to date."
             echo " "
             echo "<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<"
         fi 
