@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ProjectRootDir=false # Set a new variable to we have found the corrent directory
+WorkingBranch=$(git branch --show-current)
 
 echo " "
 echo "       EXECUTING..."
@@ -33,30 +34,39 @@ do
         echo "< RETURN TO 'Git NOW' <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
         echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
         echo " "
-        while true; do
-            read -p "Do you wish to Pull Git Updates (Y/N)? " yn # Optional Pull of git changes
-            case $yn in
-                [Yy]* ) 
-                    echo " "
-                    echo "EXECUTING: Pull"
-                    echo " "
-                    echo "<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<"
-                    echo " "
-                    git pull # Pull down changes made to the repository
-                    echo " "
-                    echo "<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<"
-                    echo " "
-                    echo ">>> RETURNING TO ORIGIN DIRECTORY..."
-                    echo " "
-                    echo "GitNOW {successful}"
-                    echo " "
-                    break;;
-                [Nn]* )
-                    echo " "
-                    break;;
-                * ) echo "Please answer with 'y' or 'n'.";;
-            esac
-        done 
+        if [ -n "$(git fetch && git diff --name-only ..origin/$WorkingBranch)" ]; then
+            while true; do
+                read -p "Do you wish to Pull Git Updates (Y/N)? " yn # Optional Pull of git changes
+                case $yn in
+                    [Yy]* ) 
+                        echo " "
+                        echo "EXECUTING: Pull"
+                        echo " "
+                        echo "<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<"
+                        echo " "
+                        git pull # Pull down changes made to the repository
+                        echo " "
+                        echo "<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<"
+                        echo " "
+                        break;;
+                    [Nn]* )
+                        echo " "
+                        break;;
+                    * ) echo "Please answer with 'y' or 'n'.";;
+                esac
+            done
+        else
+            echo " "
+            echo "<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<"
+            echo " "
+            echo "Branch is up to date."
+            echo " "
+            echo "<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<--<"
+        fi 
+        echo " "
+        echo ">>> RETURNING TO ORIGIN DIRECTORY..."
+        echo " "
+        echo "GitNOW {successful}"
         $ProjectRootDir = true # Set variable to 'True' to brake the loop.   
         break
     else
