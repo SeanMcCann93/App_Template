@@ -14,7 +14,9 @@ echo "###################    ###        ###    #### ########   ###   ###"
 echo " "
 echo "Launched from '$(pwd)'"
 echo " "
-echo "** CONFIRM PROJECT ROOT FOLDER **"
+echo "----------------------------------------------------------------------------"
+echo "CONFIRM PROJECT ROOT FOLDER"
+echo "----------------------------------------------------------------------------"
 echo ""
 while [ $homedir = false ]
 do
@@ -30,12 +32,16 @@ do
         while true; do
             read -p "Do you wish to Pull Git Updates (Y/N)? " yn
             case $yn in
-                [Yy]* ) echo "EXECUTING: Pull"
-                    echo ""
+                [Yy]* ) 
+                    echo " "
+                    echo "----------------------------------------------------------------------------"
+                    echo "EXECUTING: Pull"
+                    echo "----------------------------------------------------------------------------"
+                    echo " "
                     git pull
                     $homedir = true   
                     echo ""
-                    echo "GIT NOW! {successful}"
+                    echo "RETURN TO ORIGIN DIRECTORY >>> $(pwd)"
                     echo ""
                     break;;
                 [Nn]* )
