@@ -4,7 +4,8 @@
 sudo apt update
 
 # Install curl and jq
-sudo apt install -y curl jq
+sh curl.sh
+sh jq.sh
 
 # Assign the Variable "version" the latest docker-compose Version
 version=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r '.tag_name')
