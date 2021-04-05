@@ -2,22 +2,33 @@
 
 homedir=false
 
+echo " "
+echo "EXECUTING..."
+echo "      ::::::::::::::::::::::::::::::::    ::: :::::::: :::       :::"
+echo "    :+:    :+:   :+:        :+:   :+:+:   :+::+:    :+::+:       :+:"
+echo "   +:+          +:+        +:+    :+:+:+  +:++:+    +:++:+       +:+"
+echo "  :#:          +#+        +#+     +#+ +:+ +#++#+    +:++#+  +:+  +#+"
+echo " +#+   +#+#   +#+        +#+      +#+  +#+#+#+#+    +#++#+ +#+#+ +#+"
+echo "#+#    #+#   #+#        #+#       #+#   #+#+##+#    #+# #+#+# #+#+#"
+echo "###################    ###        ###    #### ########   ###   ###"
+echo " "
+echo "Launched from '$(pwd)'"
+echo " "
+echo "** CONFIRM PROJECT ROOT FOLDER **"
 echo ""
-echo "EXECUTING: GIT NOW!"
-echo ""
-
-echo "CONFIRM: Project Root..." 
-
 while [ $homedir = false ]
 do
     if [ -d '.git' ]
     then
         echo ""
-        echo " ! Root found: $(pwd)"
+        echo "** PROJECT ROOT CONFIRMED **"
         echo ""
+        echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
         gpush # Calls for the gpush command
+        echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+        echo ""
         while true; do
-            read -p "Do you wish to Pull Git Updates?" yn
+            read -p "Do you wish to Pull Git Updates (Y/N)? " yn
             case $yn in
                 [Yy]* ) echo "EXECUTING: Pull"
                     echo ""
@@ -34,8 +45,8 @@ do
         done          
         break
     else
-        echo "CHANGE: ./.." 
         cd ..
+        echo "CHANGE DIRECTORY: $(pwd)"
         if [ $PWD == $HOME ]
         then
             echo "Reached Home Directory. Unable to find root!"
