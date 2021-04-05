@@ -36,6 +36,7 @@ if [ -n "$(git status --porcelain)" ]; then
     echo "----------------------------------------------------------------------------"
     echo " "
     git status # Show the status of the files again for the user to see its progress changed
+    echo " "
     echo "----------------------------------------------------------------------------"
     echo " "
     echo "EXECUTING: PUSH..."
@@ -56,6 +57,7 @@ else
     echo "----------------------------------------------------------------------------"
     echo " "
     git status # Show the status of the files again for the user to see its progress changed
+    echo " "
     echo "----------------------------------------------------------------------------"
     echo " "
     echo 'GitPUSH {successful}';
