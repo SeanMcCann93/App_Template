@@ -47,8 +47,7 @@ if [ -n "$(git status --porcelain)" ]; then
     echo " "
     echo ">-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->-->"
     echo " "
-    echo 'GitPUSH {successful}'
-    echo " ";
+    echo 'GitPUSH {successful}';
 else
     echo "SKIPPING: PUSH"
     echo " "
@@ -60,6 +59,6 @@ else
     echo " "
     echo "----------------------------------------------------------------------------"
     echo " "
-    echo 'GitPUSH {successful}'
-    echo " ";
+    echo 'GitPUSH {successful}';
 fi
+echo " "
