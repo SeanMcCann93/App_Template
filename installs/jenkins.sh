@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Install Jquery on the machine
+# Install Prerequisites
 sh java.sh
 
 # Get key to add to apt repository
