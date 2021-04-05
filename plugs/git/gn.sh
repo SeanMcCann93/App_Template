@@ -52,6 +52,7 @@ do
                     echo " "
                     break;;
                 [Nn]* )
+                    echo " "
                     break;;
                 * ) echo "Please answer with 'y' or 'n'.";;
             esac
