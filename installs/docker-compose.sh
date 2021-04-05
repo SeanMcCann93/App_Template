@@ -3,7 +3,7 @@
 # Install any updates
 sudo apt update
 
-# Install curl and jq
+# Install Prerequisites
 sh curl.sh
 sh jq.sh
 
