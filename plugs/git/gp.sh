@@ -60,6 +60,6 @@ else
     echo " "
     echo "----------------------------------------------------------------------------"
     echo " "
-    echo 'GitPUSH {successful}';
-    echo " "
+    echo 'GitPUSH {successful}'
+    echo " ";
 fi
