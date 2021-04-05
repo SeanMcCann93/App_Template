@@ -69,7 +69,7 @@ do
         echo ">>> RETURNING TO ORIGIN DIRECTORY..."
         echo " "
         echo "GitNOW {successful}"
-        $ProjectRootDir = true # Set variable to 'True' to brake the loop.   
+        $ProjectRootDir = true # Set variable to 'True' to brake the loop.
         break
     else
         cd .. # Go up a file directory.
@@ -79,8 +79,8 @@ do
             echo "Reached Home Directory. Unable to find root!"
             echo " "
             echo "GitNOW {unsuccessful}"
-            echo " "
             break
         fi
     fi
 done
+echo " "
