@@ -22,3 +22,9 @@ sudo apt update
 
 # Confirm Successful Installation
 docker --version
+
+# To enable this on local system...
+# service docker start
+
+# Note: If your system is running WSL1 then you will not be able to start this system.
+#       Follow steps online to enable this feature and configure your virtual machine.
