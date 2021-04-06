@@ -28,7 +28,7 @@ if [ -n "$(git status --porcelain)" ]; then
     read -p "Please Enter Message: " commiting # Request the user to imput a message that will be seen on Git-Hub as a commit message
     echo " "
     echo "****************************************************************************"
-    git commit -m "'${commiting}' ~ $(date +"%D @ %T")" # Sent commit message and Date+Time Stamp
+    git commit -m "'${commiting}' ~ $(date +"%d/%m/%y @ %T")" # Sent commit message and Date+Time Stamp
     echo "****************************************************************************"
     echo " "
     echo "----------------------------------------------------------------------------"
