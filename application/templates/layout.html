@@ -1,24 +1,54 @@
 <html>
 	<head>
 		<title>
-			{{ title }}
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link href="{{ url_for('static', filename='images/CE_Footer.png') }}" rel="shortcut icon" type="image/png" />
+			<title>Base Template - {{ title }}</title>
+			<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 		</title>
 	</head>
 	<body>
-		<div id="Main-Menu" class="Menu_Home">
-			<ul>
-				<li><a href="{{ url_for('home') }}">Home</a></li>
-				<li><a href="{{ url_for('about') }}">About</a></li>
-				{% if current_user.is_authenticated %}
-				<li><a href="{{ url_for('post') }}">Post</a></li>
-				<li><a href="{{ url_for('account') }}">My Account</a></li>
-				<li><a href="{{ url_for('logout') }}">Logout</a></li>
-				{% else %}
-				<li><a href="{{ url_for('login') }}">Login</a></li>
-				<li><a href="{{ url_for('register') }}">Register</a></li>
-				{% endif %}
-			</ul>
-		</div>
+		<header>
+			<nav>
+				<div class="main-icon">
+					<img alt="{{ url_for('static', filename='images/CE_Footer.png') }}" class="Footer-Image" src="{{ url_for('static', filename='images/CE_Footer.png') }}" />
+				</div>
+				<ul>
+					<li><a href="{{ url_for('home') }}">Home</a></li>
+					<li><a href="{{ url_for('about') }}">About</a></li>
+					{% if current_user.is_authenticated %}
+					<li><a href="{{ url_for('post') }}">Post</a></li>
+					<li><a href="{{ url_for('account') }}">My Account</a></li>
+					<li><a href="{{ url_for('logout') }}">Logout</a></li>
+					{% else %}
+					<li><a href="{{ url_for('login') }}">Login</a></li>
+					<li><a href="{{ url_for('register') }}">Register</a></li>
+					{% endif %}
+				</ul>
+			</nav>
+		</header>
 		{% block body_content  %}{% endblock  %}
+		<footer class="footer">
+			<div class="main-icon">
+				<img alt="{{ url_for('static', filename='images/CE_Footer.png') }}" class="Footer-Image" src="{{ url_for('static', filename='images/CE_Footer.png') }}" />
+			</div>
+			<nav>
+				<ul>
+					<li><a href="{{ url_for('home') }}">Home</a></li>
+					<li><a href="{{ url_for('about') }}">About</a></li>
+					{% if current_user.is_authenticated %}
+					<li><a href="{{ url_for('post') }}">Post</a></li>
+					<li><a href="{{ url_for('account') }}">My Account</a></li>
+					<li><a href="{{ url_for('logout') }}">Logout</a></li>
+					{% else %}
+					<li><a href="{{ url_for('login') }}">Login</a></li>
+					<li><a href="{{ url_for('register') }}">Register</a></li>
+					{% endif %}
+				</ul>
+			</nav>
+			<p>by SEAN DAVID McCANN</p>
+			<h3>my stamp &copy; 2021 property of SeanMcCann93, Please Fork your own copy.</h3>
+		</footer>
 	</body>
 </html>
